@@ -27,6 +27,12 @@ page 50100 "Item Attribute Map To Shpfy"
                 field("Shopify Key Name"; Rec."Shopify Key Name")
                 {
                 }
+                field(Namespace; Rec.Namespace)
+                {
+                }
+                field(Type; Rec.Type)
+                {
+                }
             }
         }
     }
@@ -41,10 +47,20 @@ page 50100 "Item Attribute Map To Shpfy"
                 trigger OnAction()
                 var
                     XmlImport: XmlPort "Import Item Attributes";
-                    Text0001: Label 'Item attributes have been imported successfully.' , comment = 'DAN="Vareattributter er importeret succesfuldt."';
+                    Text0001: Label 'Item attributes have been imported successfully.', comment = 'DAN="Vareattributter er importeret succesfuldt."';
                 begin
                     XmlImport.Run();
                     Message('Item attributes have been imported successfully.');
+                end;
+            }
+            action(SynchronizeAttributes)
+            {
+                Caption = 'Synchronize Attributes to Shopify', Comment = 'DAN="Synkronisér attributter til Shopify"';
+                Image = TransferToLines;
+                trigger OnAction()
+                var
+                begin
+                    Report.Run(Report::"Synchronize Attributes Shpfy",true);
                 end;
             }
         }

@@ -2,10 +2,10 @@ table 50100 ItemAttribMap_Shpfy_Meta
 {
     Caption = 'ItemAttribMap_Shpfy_Meta';
     DataClassification = ToBeClassified;
-    
+
     fields
     {
-        field(1;"Item Attribute ID"; Integer)
+        field(1; "Item Attribute ID"; Integer)
         {
             Caption = 'ID', Comment = 'DAN="Vareattribut ID"';
             TableRelation = "Item Attribute".ID;
@@ -26,6 +26,16 @@ table 50100 ItemAttribMap_Shpfy_Meta
         field(3; "Shopify Key Name"; Text[250])
         {
             Caption = 'Shopify Key Name', Comment = 'DAN="Shopify Nøgle Navn"';
+        }
+        field(4; Namespace; Text[255])
+        {
+            Caption = 'Namespace', Comment = 'DAN="Navneområde"';
+            DataClassification = SystemMetadata;
+        }
+        field(6; Type; Enum "Shpfy Metafield Type")
+        {
+            Caption = 'Type', Comment = 'DAN="Værditype"';
+            DataClassification = CustomerContent;
         }
     }
     keys
