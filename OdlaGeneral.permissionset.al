@@ -1,5 +1,7 @@
 namespace Odla;
 
+using OdlaGeneral.OdlaGeneral;
+
 permissionset 50100 OdlaGeneral
 {
     Assignable = true;
@@ -7,5 +9,6 @@ permissionset 50100 OdlaGeneral
         table ItemAttribMap_Shpfy_Meta=X,
         xmlport "Import Item Attributes"=X,
         page "Item Attribute Map To Shpfy"=X,
-        report "Synchronize Attributes Shpfy"=X;
+        report "Synchronize Attributes Shpfy"=X,
+        codeunit Odla_Utils=X;
 }
