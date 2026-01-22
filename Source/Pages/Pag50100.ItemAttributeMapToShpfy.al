@@ -60,9 +60,19 @@ page 50100 "Item Attribute Map To Shpfy"
                 trigger OnAction()
                 var
                 begin
-                    Report.Run(Report::"Synchronize Attributes Shpfy",true);
+                    Report.Run(Report::"Synchronize Attributes Shpfy", true);
                 end;
             }
+            // action(Createpurchaseprice)
+            // {
+            //     Caption = 'Create purchase price', Comment = 'DAN="Opret købspriser"';
+            //     Image = TransferToLines;
+            //     trigger OnAction()
+            //     var
+            //     begin
+            //         Codeunit.Run(Codeunit::"Create Vendor pricelist");
+            //     end;
+            // }
         }
     }
 }
