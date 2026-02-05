@@ -6,7 +6,7 @@
             "request": "launch",
             "type": "al",
             "environmentType": "Sandbox",
-            "environmentName": "Sandbox_2012026",
+            "environmentName": "Shopify_Integration_Test290126",
             "startupObjectId": 31,
             "startupObjectType": "Page",
             "breakOnError": "All",
