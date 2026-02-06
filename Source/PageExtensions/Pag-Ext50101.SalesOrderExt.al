@@ -2,7 +2,7 @@ namespace OdlaGeneral.OdlaGeneral;
 
 using Microsoft.Sales.Document;
 
-pageextension 50101 SalesOrder_Ext extends "Sales Order List"
+pageextension 50102 SalesOrder_Ext extends "Sales Order List"
 {
     layout
     {
