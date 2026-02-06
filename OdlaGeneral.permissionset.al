@@ -10,5 +10,6 @@ permissionset 50100 OdlaGeneral
         xmlport "Import Item Attributes"=X,
         page "Item Attribute Map To Shpfy"=X,
         report "Synchronize Attributes Shpfy"=X,
-        codeunit Odla_Utils=X;
+        codeunit Odla_Utils=X,
+        codeunit "Create Vendor pricelist"=X;
 }
