@@ -9,8 +9,36 @@ codeunit 50100 Odla_Utils
 
     trigger OnRun()
     var
+        ShopifyorderHeader: Record "Shpfy Order Header";
+        OrderShippingCharges: Record "Shpfy Order Shipping Charges";
+        OrderAttribute: Record "Shpfy Order Attribute";
+        SalesSetup: Record "Sales & Receivables Setup";
+        TempStr: Text[100];
+        TmpPos: Integer;
+        Ok: Boolean;
     begin
-
+        ShopifyorderHeader.Get('12334629814603');
+        OrderShippingCharges.SetRange("Shopify Order Id", ShopifyOrderHeader."Shopify Order Id");
+        if OrderShippingCharges.FindFirst() then begin
+            SalesSetup.Get();
+            if SalesSetup."PostNord DropPoint Code" = '' then begin
+                SalesSetup."PostNord DropPoint Code" := 'OMBUD';
+                SalesSetup.Modify();
+            end;
+            if StrPos(OrderShippingCharges."Code Value", 'postnord') > 0 then begin
+                TempStr := OrderShippingCharges."Code Value";
+                while StrPos(TempStr, '_') <> 0 do begin
+                    TmpPos := StrPos(TempStr, '_');
+                    TempStr := CopyStr(TempStr, TmpPos + 1, StrLen(TempStr) - TmpPos);
+                end;
+                TmpPos := 0;
+                if Evaluate(TmpPos, TempStr) then begin
+                    ShopifyOrderHeader."Ship-to Address 2" := TempStr;
+                    ShopifyOrderHeader."Shipping Method Code" := SalesSetup."PostNord DropPoint Code";
+                    ShopifyOrderHeader.Modify();
+                end
+            end;
+        end;
     end;
 
     // **************************** Event Subscribers below **************************** \\
@@ -50,7 +78,7 @@ codeunit 50100 Odla_Utils
                 SalesSetup."PostNord DropPoint Code" := 'OMBUD';
                 SalesSetup.Modify();
             end;
-            if StrPos(OrderShippingCharges."Code Value", 'POSTNORD') > 0 then begin
+            if StrPos(OrderShippingCharges."Code Value", 'postnord') > 0 then begin
                 TempStr := OrderShippingCharges."Code Value";
                 while StrPos(TempStr, '_') <> 0 do begin
                     TmpPos := StrPos(TempStr, '_');
@@ -60,6 +88,7 @@ codeunit 50100 Odla_Utils
                 if Evaluate(TmpPos, TempStr) then begin
                     ShopifyOrderHeader."Ship-to Address 2" := TempStr;
                     ShopifyOrderHeader."Shipping Method Code" := SalesSetup."PostNord DropPoint Code";
+                    ShopifyOrderHeader.Modify();
                     Handled := true;
                 end
             end;
