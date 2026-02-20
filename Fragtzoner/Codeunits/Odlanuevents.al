@@ -9,8 +9,8 @@ codeunit 50200 "Odlanu events"
             RecordExists := false;
             IsHandled := true;
             If GuiAllowed then
-                error(Error2, ItemNo, ShipmentDate, SalesHeader."Ship-to Post Code")
-            else
+                // error(Error2, ItemNo, ShipmentDate, SalesHeader."Ship-to Post Code")
+                // else
                 Message(Error2, ItemNo, ShipmentDate, SalesHeader."Ship-to Post Code");
         end;
 

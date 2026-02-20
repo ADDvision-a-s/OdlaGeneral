@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Microsoft cloud sandbox",
+            "request": "launch",
+            "type": "al",
+            "environmentType": "Sandbox",
+            "environmentName": "Shopify_Integration_Test290126",
+            "startupObjectId": 31,
+            "startupObjectType": "Page",
+            "breakOnError": "All",
+            "launchBrowser": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "schemaUpdateMode": "Synchronize",
+            "tenant": "6b34e0cb-5959-41b7-ac8f-9e1fc19b6605"
+            // "forceUpgrade": true,
+            // "schemaUpdateMode": "ForceSync",
+            
+
+        }
+    ]
+}
