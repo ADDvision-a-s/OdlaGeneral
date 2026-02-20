@@ -34,6 +34,24 @@ pageextension 50203 "Sales Setup ext." extends "Sales & Receivables Setup"
                     FreightZoneZipCodeList.Run();
                 end;
             }
+            action("gl")
+            {
+                Caption = 'GL Account', Comment = 'Dan="Konti."';
+                ApplicationArea = All;
+                Image = Lot;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+
+
+                trigger OnAction();
+                var
+                    glxmlpage: XmlPort konti;
+                begin
+
+                    glxmlpage.Run;
+                end;
+            }
         }
 
     }

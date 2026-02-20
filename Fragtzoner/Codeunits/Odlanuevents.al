@@ -7,12 +7,13 @@ codeunit 50200 "Odlanu events"
         CheckFreight(WhseRequest);
         if CanbeShiped = false then begin
             RecordExists := false;
+            IsHandled := true;
             If GuiAllowed then
                 error(Error2, ItemNo, ShipmentDate, SalesHeader."Ship-to Post Code")
             else
                 Message(Error2, ItemNo, ShipmentDate, SalesHeader."Ship-to Post Code");
         end;
-        IsHandled := true;
+
 
     end;
 
