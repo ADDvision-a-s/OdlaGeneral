@@ -1,5 +1,16 @@
 pageextension 50203 "Sales Setup ext." extends "Sales & Receivables Setup"
 {
+
+    layout
+    {
+        addafter("Copy Customer Name to Entries")
+        {
+            field("Freight Zone Active"; Rec."Freight Zone Active")
+            {
+                ApplicationArea = All;
+            }
+        }
+    }
     actions
     {
         addlast(navigation)

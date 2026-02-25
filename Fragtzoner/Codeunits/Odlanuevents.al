@@ -3,7 +3,13 @@ codeunit 50200 "Odlanu events"
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Create Inventory Pick/Movement", 'OnBeforeGetSourceDocHeader', '', false, false)]
     local procedure OnBeforeGetSourceDocHeader(var WhseRequest: Record "Warehouse Request"; var IsHandled: Boolean; var RecordExists: Boolean)
+    var
+        Salesandrecei: Record "Sales & Receivables Setup";
     begin
+        Salesandrecei.Get();
+        if not Salesandrecei."Freight Zone Active" then
+            exit;
+
         CheckFreight(WhseRequest);
         if CanbeShiped = false then begin
             RecordExists := false;
