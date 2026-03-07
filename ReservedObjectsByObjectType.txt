@@ -1,0 +1,64 @@
+codeunit 50100 Odla_Utils
+codeunit 50101 "Create Vendor pricelist"
+codeunit 50200 "Odlanu events"
+page 50100 "Item Attribute Map To Shpfy"
+page 50200 "Freight Zones"
+page 50201 "Freight Zone Zip Code"
+page 50202 "Item Freight Zone"
+report 50100 "Synchronize Attributes Shpfy"
+table 50100 ItemAttribMap_Shpfy_Meta
+table 50200 "Freight Zones"
+table 50201 "Freight Zone Zip Code"
+table 50202 "Item FreightZone"
+xmlport 50100 "Import Item Attributes"
+xmlport 50200 konti
+xmlport 50200 konti
+pageextension 50100 ItemList_Ext extends "Item List"
+pageextension 50101 PickList_Ext extends "Inventory Picks"
+pageextension 50102 SalesOrder_Ext extends "Sales Order List"
+pageextension 50103 ADD_SalesSetup_Ext extends "Sales & Receivables Setup"
+pageextension 50200 "Item Card Ext." extends "Item Card"
+pageextension 50201 "Item List Ext." extends "Item List"
+pageextension 50203 "Sales Setup ext." extends "Sales & Receivables Setup"
+pageextension 50203 "Sales Setup ext." extends "Sales & Receivables Setup"
+permissionset 50100 OdlaGeneral
+permissionset 50200 GeneratedPermission
+tableextension 50100 SalesHeader_ADD extends "Sales Header"
+tableextension 50101 ADD_SalesSetup_Ext extends "Sales & Receivables Setup"
+tableextension 50200 "Sales & Rec. ext." extends "Sales & Receivables Setup"
+---------------------------
+Object type     : Count
+---------------------------
+Tables          : 4
+Pages           : 4
+Codeunits       : 3
+Queries         : 0
+XMLPorts        : 3
+Reports         : 1
+Enums           : 0
+Menusuites      : 0
+Profiles        : 0
+ControlAddins   : 0
+DotNetobjects   : 0
+Interfaces      : 0
+PermissionSets  : 2
+PageExtensions  : 8
+TableExtensions : 3
+ReportExtensions: 0
+EnumExtensions  : 0
+PermissionSetExt: 0
+---------------------------
+.al Files       : 30
+Reserved Objects: 28
+Unrecognized Files: /c:/Users/pfw/AL/Odla/Fragtzoner/Pageextension/SalesOrderExt.al
+/c:/Users/pfw/AL/Odla/Fragtzoner/TableExtensions/SalesHeaderbExt.al
+
+---------------------------
+License summary
+---------------------------
+Codeunits : 50100-50101,50200
+Pages     : 50100,50200-50202
+Queries   : 
+Reports   : 50100
+Tables    : 50100,50200-50202
+XMLPorts  : 50100,50200

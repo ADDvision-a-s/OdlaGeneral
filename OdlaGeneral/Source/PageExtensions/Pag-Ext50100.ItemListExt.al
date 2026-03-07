@@ -16,6 +16,17 @@ pageextension 50100 ItemList_Ext extends "Item List"
                     ItemAttributeMapping.RunModal();
                 end;
             }
+            action(SynchronizeAttributes)
+            {
+                Caption = 'Synchronize Attributes from Shopify', Comment = 'DAN="Synkronisér attributter fra Shopify"';
+                Image = TransferToLines;
+                ApplicationArea = All;
+                trigger OnAction()
+                var
+                begin
+                    Report.Run(Report::"Synchronize Attributes Shpfy", true);
+                end;
+            }
             action("ItemAttributeImport")
             {
                 Caption = 'Item Attribute Import', Comment = 'DAN="Importér vare attributværdier"';
@@ -37,7 +48,10 @@ pageextension 50100 ItemList_Ext extends "Item List"
             actionref("ItemAttributemapping_Promoted"; "ItemAttributemapping")
             {
             }
-           actionref("ItemAttributeImport_Promoted"; "ItemAttributeImport")
+            actionref("SynchronizeAttributes_Promoted"; "SynchronizeAttributes")
+            {
+            }
+            actionref("ItemAttributeImport_Promoted"; "ItemAttributeImport")
             {
             }
 

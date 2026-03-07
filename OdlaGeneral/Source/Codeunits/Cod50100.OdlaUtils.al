@@ -3,6 +3,7 @@ using Microsoft.Integration.Shopify;
 using Microsoft.Sales.Document;
 using Microsoft.Sales.Posting;
 using Microsoft.Sales.Setup;
+using Microsoft.Warehouse.Activity;
 
 codeunit 50100 Odla_Utils
 {
@@ -95,6 +96,11 @@ codeunit 50100 Odla_Utils
         end;
     end;
 
+    // [EventSubscriber(ObjectType::Codeunit, CodeUnit::"Create Inventory Pick/Movement", OnBeforeCreatePickOrMoveFromSales, '', false, false)]
+    // local procedure OnBeforeCreatePickOrMoveFromSales(var WarehouseActivityHeader: Record "Warehouse Activity Header"; SalesHeader: Record "Sales Header"; AutoCreation: Boolean; HideDialog: Boolean; var SalesLine: Record "Sales Line")
+    // begin
+    //     SalesHeader."Shipping Advice" := SalesHeader
+    // end;
 
     // [EventSubscriber(ObjectType::Codeunit, CodeUnit::"Sales-Post", OnCheckAndUpdateOnBeforeCheckShip, '', false, false)]
     // local procedure OnCheckAndUpdateOnBeforeCheckShip(var IsHandled: Boolean; var SalesHeader: Record "Sales Header")

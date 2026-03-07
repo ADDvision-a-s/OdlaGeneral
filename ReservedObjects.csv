@@ -1,0 +1,29 @@
+appPublisher;appName;FileName;ObjectType;ObjectID;ObjectName;Action;Extends
+Default Publisher;Fragtzoner;/Fragtzoner/Codeunits/Odlanuevents.al;codeunit;50200;"Odlanu events";;
+Default Publisher;Fragtzoner;/Fragtzoner/Pageextension/ItemCardExt copy.al;pageextension;50201;"Item List Ext.";extends;"Item List"
+Default Publisher;Fragtzoner;/Fragtzoner/Pageextension/ItemCardExt.al;pageextension;50200;"Item Card Ext.";extends;"Item Card"
+Default Publisher;Fragtzoner;/Fragtzoner/Pageextension/SalesSetupext.al;pageextension;50203;"Sales Setup ext.";extends;"Sales & Receivables Setup"
+Default Publisher;Fragtzoner;/Fragtzoner/Pages/FreightZones.al;page;50200;"Freight Zones";;
+Default Publisher;Fragtzoner;/Fragtzoner/Pages/FreightZoneZipCode.al;page;50201;"Freight Zone Zip Code";;
+Default Publisher;Fragtzoner;/Fragtzoner/Pages/ItemFreightZone.al;page;50202;"Item Freight Zone";;
+Default Publisher;Fragtzoner;/Fragtzoner/Permisssions/GeneratedPermission.permissionset.al;permissionset;50200;GeneratedPermission;;
+Default Publisher;Fragtzoner;/Fragtzoner/TableExtensions/SalesRecext.al;tableextension;50200;"Sales & Rec. ext.";extends;"Sales & Receivables Setup"
+Default Publisher;Fragtzoner;/Fragtzoner/Tables/FreightZones.al;table;50200;"Freight Zones";;
+Default Publisher;Fragtzoner;/Fragtzoner/Tables/FreightZoneZipCode.al;table;50201;"Freight Zone Zip Code";;
+Default Publisher;Fragtzoner;/Fragtzoner/Tables/ItemFreightZone.al;table;50202;"Item FreightZone";;
+Default Publisher;Fragtzoner;/Fragtzoner/XML/konti.al;xmlport;50200;konti;;
+Default Publisher;OdlaGeneral;/OdlaGeneral/Cod50101.CreateVendorpricelist.al;codeunit;50101;"Create Vendor pricelist";;
+Default Publisher;OdlaGeneral;/OdlaGeneral/OdlaGeneral.permissionset.al;permissionset;50100;OdlaGeneral;;
+Default Publisher;OdlaGeneral;/OdlaGeneral/Pag-Ext50101.Pickinvlistext.al;pageextension;50101;PickList_Ext;extends;"Inventory Picks"
+Default Publisher;OdlaGeneral;/OdlaGeneral/Source/Codeunits/Cod50100.OdlaUtils.al;codeunit;50100;Odla_Utils;;
+Default Publisher;OdlaGeneral;/OdlaGeneral/Source/PageExtensions/Pag-Ext50100.ItemListExt.al;pageextension;50100;ItemList_Ext;extends;"Item List"
+Default Publisher;OdlaGeneral;/OdlaGeneral/Source/PageExtensions/Pag-Ext50101.SalesOrderExt.al;pageextension;50102;SalesOrder_Ext;extends;"Sales Order List"
+Default Publisher;OdlaGeneral;/OdlaGeneral/Source/PageExtensions/Pag-Ext50103.ADDSalesSetupExt.al;pageextension;50103;ADD_SalesSetup_Ext;extends;"Sales & Receivables Setup"
+Default Publisher;OdlaGeneral;/OdlaGeneral/Source/Pages/Pag50100.ItemAttributeMapToShpfy.al;page;50100;"Item Attribute Map To Shpfy";;
+Default Publisher;OdlaGeneral;/OdlaGeneral/Source/Reports/Rep50100.SynchronizeAttributesShpfy.al;report;50100;"Synchronize Attributes Shpfy";;
+Default Publisher;OdlaGeneral;/OdlaGeneral/Source/TableExtensions/Tab-Ext50100.SalesHeaderADD.al;tableextension;50100;SalesHeader_ADD;extends;"Sales Header"
+Default Publisher;OdlaGeneral;/OdlaGeneral/Source/TableExtensions/Tab-Ext50101.ADDSalesSetupExt.al;tableextension;50101;ADD_SalesSetup_Ext;extends;"Sales & Receivables Setup"
+Default Publisher;OdlaGeneral;/OdlaGeneral/Source/Tables/Tab50100.ItemAttribMapShpfyMeta.al;table;50100;ItemAttribMap_Shpfy_Meta;;
+Default Publisher;OdlaGeneral;/OdlaGeneral/Source/XMLPorts/Xml50100.ImportItemAttributes.al;xmlport;50100;"Import Item Attributes";;
+Default Publisher;Opretkonti;/Opretkonti/SalesSetupext.al;pageextension;50203;"Sales Setup ext.";extends;"Sales & Receivables Setup"
+Default Publisher;Opretkonti;/Opretkonti/Xml50100.konti.al;xmlport;50200;konti;;
