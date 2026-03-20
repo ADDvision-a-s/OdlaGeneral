@@ -44,6 +44,13 @@ report 50100 "Synchronize Attributes Shpfy"
                 if ShopifyMeta.FindSet() then begin
                     repeat
                         ItemAttributeName := ShopifyMeta.Namespace + '_' + ShopifyMeta.Name;
+                        //Find Evt Mapping mellem meta felter og item attributter
+                        Clear(AttributeMapShpfy);
+                        AttributeMapShpfy.SetCurrentKey("Shopify Key Name");                        
+                        AttributeMapShpfy.SetRange("Shopify Key Name", ItemAttributeName);
+                        if AttributeMapShpfy.FindFirst() then begin
+                            ItemAttributeName := AttributeMapShpfy."Item Attribute Name";
+                        end;
                         Clear(ItemAttribute);
                         ItemAttribute.SetCurrentKey(Name);
                         ItemAttribute.SetRange(Name, ItemAttributeName);
@@ -79,8 +86,10 @@ report 50100 "Synchronize Attributes Shpfy"
                         end;
                         if StrPos(ItemAttributeName, 'country_of_origin') <> 0 then begin
                             if Country.Get(CopyStr(ShopifyMeta.Value, 1, MaxStrLen(Country."Code"))) then begin
-                                Item.Validate("Country/Region of Origin Code", ShopifyMeta.Value);
-                                Item.Modify(true);
+                                if Item."Country/Region of Origin Code" <> Country."Code" then begin
+                                    Item.Validate("Country/Region of Origin Code", ShopifyMeta.Value);
+                                    Item.Modify(true);
+                                end;
                             end;
                         end;
                     until ShopifyMeta.Next() = 0;

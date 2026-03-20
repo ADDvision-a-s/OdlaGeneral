@@ -44,5 +44,13 @@ table 50100 ItemAttribMap_Shpfy_Meta
         {
             Clustered = true;
         }
+        key(Key1; "Shopify Key Name", Namespace)
+        {
+
+        }
+        key(Key2; "Item Attribute Name")
+        {
+
+        }
     }
 }
