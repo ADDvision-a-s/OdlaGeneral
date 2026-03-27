@@ -1,7 +1,7 @@
 page 50100 "Item Attribute Map To Shpfy"
 {
     ApplicationArea = All;
-    Caption = 'Item Attribute Map To Shopify', Comment = 'DAN="Vareattribut mapning til Shopify"';
+    Caption = 'Item Attribute Map from Shopify', Comment = 'DAN="Vareattribut mapning fra Shopify"';
     PageType = List;
     SourceTable = ItemAttribMap_Shpfy_Meta;
     UsageCategory = Administration;
