@@ -1,6 +1,45 @@
 codeunit 50200 "Odlanu events"
 {
 
+
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Create Inventory Pick/Movement", 'OnAfterAutoCreatePickOrMove', '', false, false)]
+    local procedure OnAfterAutoCreatePickOrMove(var WarehouseRequest: Record "Warehouse Request"; LineCreated: Boolean; var WarehouseActivityHeader: Record "Warehouse Activity Header"; Location: Record Location; HideDialog: Boolean)
+    var
+        Salesheader: Record "Sales Header";
+        Salesline: Record "Sales Line";
+        Volume: Decimal;
+        GrossWeight: Decimal;
+        netWeight: Decimal;
+
+    begin
+        Salesheader.SetRange("Document Type", WarehouseActivityHeader."Source Subtype");
+        Salesheader.SetRange("No.", WarehouseActivityHeader."Source No.");
+        If Salesheader.FindFirst() then begin
+
+            SalesLine.SetRange("Document Type", Salesheader."Document Type");
+            SalesLine.SetRange("Document No.", Salesheader."No.");
+            IF SalesLine.FindSet() THEN
+                REPEAT
+                    Volume += SalesLine."Quantity (Base)" * SalesLine."Unit Volume";
+                    GrossWeight += SalesLine."Quantity (Base)" * SalesLine."Gross Weight";
+                    netWeight += SalesLine."Quantity (Base)" * SalesLine."Net Weight";
+                UNTIL SalesLine.Next() = 0;
+
+            Salesheader."Volume when Pick created" := Volume;
+            Salesheader."Net Weight when Pick created" := netWeight;
+            Salesheader."Gross Weight when Pick created" := GrossWeight;
+            Salesheader.Modify();
+
+            WarehouseActivityHeader."Volume when Pick created" := Volume;
+            WarehouseActivityHeader."Net Weight when Pick created" := netWeight;
+            WarehouseActivityHeader."Gross Weight when Pick created" := GrossWeight;
+            WarehouseActivityHeader.Modify();
+
+        end;
+
+    END;
+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Create Inventory Pick/Movement", 'OnBeforeGetSourceDocHeader', '', false, false)]
     local procedure OnBeforeGetSourceDocHeader(var WhseRequest: Record "Warehouse Request"; var IsHandled: Boolean; var RecordExists: Boolean)
     var
